@@ -1,0 +1,20 @@
+@import "reset.scss"; /* сброс стилей по умолчанию */
+@import "fonts.scss"; /* собственные шрифты */
+
+
+body {
+    background: linear-gradient(90deg, #652b97, #430b73);
+
+    .allthereis {
+        $indent-X: 1vw;
+        $indent-Y: 2vh;
+
+        position: relative;
+        top: $indent-Y;
+        left: $indent-X;
+        width: 100vw -$indent-X*2;
+        height: 100vh -$indent-Y*2;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+}

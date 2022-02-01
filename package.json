@@ -1,0 +1,23 @@
+{
+  "name": "journal",
+  "version": "1.0.0",
+  "description": "log template for recording the readings of receivers in the control room",
+  "targets": {
+    "main": false
+  },
+  "main": "index.js",
+  "source": "src/index.pug",
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "scripts": {
+    "dev": "parcel --open --port 5000",
+    "pro": "parcel build"
+  },
+  "keywords": [],
+  "author": "Vladislav Golikov",
+  "license": "MIT",
+  "devDependencies": {
+    "@parcel/transformer-pug": "^2.2.1",
+    "@parcel/transformer-sass": "^2.2.1",
+    "parcel": "^2.2.1"
+  }
+}

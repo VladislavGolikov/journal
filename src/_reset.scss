@@ -1,0 +1,49 @@
+// моя версия - собрана на 05.01.2022
+
+// Всё в бордер бокс!
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+// Удаляем отступы!
+address, article, aside, audio, blockquote, body, button, dialog, div, dl, dd, figure, figcaption, footer, h1, h2, h3, h4, h5, h6,
+header, img, main, nav, p, section {
+    margin: 0;
+    padding: 0;
+}
+
+// В своих списках скидываем декор и стили
+ul[class],
+ol[class] {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+// боди к нормальному виду
+body {
+    min-height: 100vh;
+    min-width: 100vw;
+    overflow: hidden;
+    scroll-behavior: smooth;
+    line-height: 1.5;
+}
+
+// ссылка без класса подчеркивается не сплошной чертой
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+// для картинок размерность и блочность
+img, picture {
+  max-width: 100%;
+  display: block;
+}
+
+// наследование шрифтов для элементов форм
+input, button, textarea, select {
+  font: inherit;
+}
+
