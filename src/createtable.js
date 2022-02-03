@@ -50,12 +50,12 @@ export class CreateTable {
     createTableHead(){
         /*** заголовок года ***/
         new CreateCellNamed('beginYear','endYear','beginYear','endYear',
-            `${monthDuration[this.currentMonth][2]} ${this.currentYear} года`); // тут подумать!!!
+            `${monthDuration[this.currentMonth][2]} ${this.currentYear} года`);
 
         /*** заголовок пакета ***/
         tables[this.currentPage].forEach(function(el,ind){
 
-            new CreateCellNamed(ind*2+this.IndentX, ind*2+this.IndentX+2,'beginPacket','endPacket',el)
+            new CreateCellNamed(ind*2+this.IndentX, ind*2+this.IndentX+2,'beginPacket','endPacket',el,'cellNamedPacket')
         },this);
 
         /*** заголовок параметра ***/
@@ -63,12 +63,12 @@ export class CreateTable {
             const indexOuter=ind;
 
             columns.forEach(function(el,ind){
-                new CreateCellNamed(ind+this.IndentX+indexOuter*2, ind+this.IndentX+indexOuter*2+1,'beginParameter','endParameter',el)
+                new CreateCellNamed(ind+this.IndentX+indexOuter*2, ind+this.IndentX+indexOuter*2+1,'beginParameter','endParameter',el,'cellNamedParameter')
             },this,indexOuter)
         },this);
 
         /*** заголовок даты ***/
-        new CreateCellNamed(1,2,'beginParameter','endParameter','Дата:');
+        new CreateCellNamed(1,2,'beginParameter','endParameter','Дата:','cellNamedDate');
 
     }
 
@@ -98,8 +98,6 @@ export class CreateTable {
     updateLayout() {
         this.numOfRows=Number(monthDuration[this.currentMonth][0]); /* перерасчет строк */
         this.numOfColumns=tables[this.currentPage].length*columns.length; /* перерасчет столбцов */
-
     }
-
 }
 

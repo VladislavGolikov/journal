@@ -31,11 +31,11 @@ export class CreateCell {
 }
 
 export class CreateCellNamed {
-    constructor(columnBegin='', columnEnd='', rowBegin='', rowEnd='', text='') {
+    constructor(columnBegin='', columnEnd='', rowBegin='', rowEnd='', text='',className='cellNamed') {
         this.placeForInsert=document.querySelector('.allthereis');
         this.placeForStylize=null;
         this.cellTemplate=``;
-        this.className=`cellOfTableNamed`;
+        this.className=className;
         this.idName=`${columnBegin}_${rowBegin}`;
         this.text=text;
         this.columnBegin=columnBegin;
