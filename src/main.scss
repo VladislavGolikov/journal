@@ -48,26 +48,43 @@ body {
     %buttons {
         position: absolute;
         top: 1vh;
+        width: 15vh;
+        height: 4vh;
         z-index: 2;
+        text-transform: uppercase;
         border-radius: 1vh;
         color: #338800;
         background-color: red;
     }
     .changePage {
         @extend %buttons;
-        left: 1vh;
+        right: 52vh;
     }
     .changeMonthForward {
         @extend %buttons;
-        left: 120vh;
+        right: 20vh;
     }
     .changeMonthBackward {
         @extend %buttons;
-        left: 70vh;
+        right: 36vh;
     }
     .printPage {
         @extend %buttons;
-        left: 170vh;
+        right: 4vh;
+    }
+
+    .logo {
+        position: absolute;
+        width: 15vh;
+        height: 8vh;
+        left: 1vw;
+        top: 2vh;
+        background-image: url('./icons/logo.svg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 90%;
+        background-color: green;
+        z-index: 2;
     }
 
 }

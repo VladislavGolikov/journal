@@ -32,7 +32,7 @@ export class CreateTable {
 
     createGridStyle() { /* разметка грида */
 
-        this.placeForStylize.style.gridTemplateColumns=`[beginDate beginYear] ${this.dateWidth} [endDate] repeat(${this.numOfColumns}, 1fr) [endYear]`;
+        this.placeForStylize.style.gridTemplateColumns=`[beginDate] ${this.dateWidth} [endDate beginYear] repeat(${this.numOfColumns}, 1fr) [endYear]`;
         this.placeForStylize.style.gridTemplateRows=`
         [beginYear] ${this.yearHeight} [endYear beginPacket] ${this.packetHeight} [endPacket beginParameter]
         ${this.parameterHeight} [endParameter] repeat(${this.numOfRows}, 1fr)
@@ -68,7 +68,7 @@ export class CreateTable {
         },this);
 
         /*** заголовок даты ***/
-        new CreateCellNamed(1,2,'beginPacket','endParameter','Дата:');
+        new CreateCellNamed(1,2,'beginParameter','endParameter','Дата:');
 
     }
 
