@@ -53,24 +53,32 @@ body {
         z-index: 2;
         text-transform: uppercase;
         border-radius: 1vh;
-        color: #338800;
+        color: black;
         background-color: red;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+
     }
     .changePage {
         @extend %buttons;
         right: 52vh;
+        background-image: url('./icons/page.svg');
     }
     .changeMonthForward {
         @extend %buttons;
         right: 20vh;
+        background-image: url('./icons/month-up.svg');
     }
     .changeMonthBackward {
         @extend %buttons;
         right: 36vh;
+        background-image: url('./icons/month-down.svg');
     }
     .printPage {
         @extend %buttons;
         right: 4vh;
+        background-image: url('./icons/print.svg');
     }
 
     .logo {
@@ -84,6 +92,7 @@ body {
         background-repeat: no-repeat;
         background-size: 90%;
         background-color: green;
+        border: 2px black solid;
         z-index: 2;
     }
 
