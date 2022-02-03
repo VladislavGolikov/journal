@@ -1,5 +1,6 @@
 @import "reset.scss"; /* сброс стилей по умолчанию */
 @import "fonts.scss"; /* собственные шрифты */
+@import "print.scss"; /* стили для печати содержимого */
 
 
 body {
@@ -26,20 +27,47 @@ body {
 
         .cellOfTable {
             font-family: minecraft;
-            font-size: 1vh;
-            background-color: blue;
-            outline: 1px red dashed;
+            font-size: 1.5vh;
+            background-color: yellow;
+            border: 1px black solid;
+            text-align: center;
         }
+
         .cellOfTableNamed {
             font-family: minecraft;
             text-align: center;
-            text-transform: uppercase;
-            font-size: 2.5vh;
+            text-transform: none;
+            font-size: 2.2vh;
             font-weight: bold;
             line-height: 4vh;
             background-color: green;
             border: 2px black solid;
-
         }
-   }
+    }
+
+    %buttons {
+        position: absolute;
+        top: 1vh;
+        z-index: 2;
+        border-radius: 1vh;
+        color: #338800;
+        background-color: red;
+    }
+    .changePage {
+        @extend %buttons;
+        left: 1vh;
+    }
+    .changeMonthForward {
+        @extend %buttons;
+        left: 120vh;
+    }
+    .changeMonthBackward {
+        @extend %buttons;
+        left: 70vh;
+    }
+    .printPage {
+        @extend %buttons;
+        left: 170vh;
+    }
+
 }
