@@ -42,7 +42,7 @@ export class CreateTable {
     createTableSimple() { /* создание множества пустых ячеек */
         for (let j=1+this.numOfRowsIndent; j <= this.numOfRows+this.numOfRowsIndent; j++) {
             for (let i=this.IndentX; i < this.numOfColumns+this.IndentX; i++) {
-                new CreateCell(i,j,`col${i} row${j}`);
+                new CreateCell(i,j,``);
             }
         }
     }
