@@ -1,0 +1,133 @@
+@charset "UTF-8";
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+address, article, aside, audio, blockquote, body, button, dialog, div, dl, dd, figure, figcaption, footer, h1, h2, h3, h4, h5, h6,
+header, img, main, nav, p, section {
+  margin: 0;
+  padding: 0;
+}
+ul[class],
+ol[class] {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  min-width: 100vw;
+  overflow: hidden;
+  scroll-behavior: smooth;
+  line-height: 1.5;
+}
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+img, picture {
+  max-width: 100%;
+  display: block;
+}
+input, button, textarea, select {
+  font: inherit;
+}
+/* сброс стилей по умолчанию */
+@font-face {
+  font-family: minecraft;
+  src: url("minecraft.feb9e879.woff");
+  font-style: normal;
+  font-weight: normal;
+}
+/* собственные шрифты */
+@media print {
+  button {
+    visibility: hidden;
+  }
+}
+/* стили для печати содержимого */
+body {
+  background: linear-gradient(90deg, #652b97, #430b73);
+}
+body .allthereis {
+  position: relative;
+  top: 2vh;
+  left: 1vw;
+  width: 98vw;
+  height: 96vh;
+  box-sizing: border-box;
+  overflow: hidden;
+  background-color: white;
+  display: grid;
+  grid-template-columns: repeat(100, 1fr);
+  grid-template-rows: repeat(31, 1fr);
+  gap: 0 0;
+}
+body .allthereis .cellOfTable {
+  font-family: minecraft;
+  font-size: 1.5vh;
+  background-color: yellow;
+  border: 1px black solid;
+  text-align: center;
+}
+body .allthereis .cellNamedPacket, body .allthereis .cellNamedParameter, body .allthereis .cellNamedDate, body .allthereis .cellNamed {
+  font-family: minecraft;
+  text-align: center;
+  text-transform: none;
+  font-size: 3vh;
+  font-weight: bold;
+  line-height: 4vh;
+  background-color: green;
+  border: 2px black solid;
+}
+body .allthereis .cellNamedDate {
+  font-size: 2vh;
+}
+body .allthereis .cellNamedParameter {
+  font-size: 1.5vh;
+}
+body .allthereis .cellNamedPacket {
+  font-size: 1.5vh;
+}
+body .printPage, body .changeMonthForward, body .changeMonthBackward, body .changePage {
+  position: absolute;
+  top: 1vh;
+  width: 7vh;
+  height: 4vh;
+  z-index: 2;
+  text-transform: uppercase;
+  border-radius: 1vh;
+  color: black;
+  background-color: #00cc00;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+body .changePage {
+  right: 28vh;
+  background-image: url("page.cd406237.svg");
+}
+body .changeMonthBackward {
+  right: 20vh;
+  background-image: url("month-down.618b26bf.svg");
+}
+body .changeMonthForward {
+  right: 12vh;
+  background-image: url("month-up.8ce6ec84.svg");
+}
+body .printPage {
+  right: 4vh;
+  background-image: url("print.84b7750c.svg");
+}
+body .logo {
+  position: absolute;
+  width: 15vh;
+  height: 8vh;
+  left: 1vw;
+  top: 2vh;
+  padding: 0.5vh;
+  background-color: green;
+  border: 2px black solid;
+  z-index: 2;
+}
+/*# sourceMappingURL=index.2103b895.css.map */
