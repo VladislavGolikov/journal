@@ -28,7 +28,7 @@
 
 <img src="examples/page1.jpg" alt="первая страница журнала" width="320" >
 
-при помощи кнопки [листать](https://github.com/VladislavGolikov/journal/blob/master/src/icons/page.svg)
+при помощи кнопки листать![листать](https://github.com/VladislavGolikov/journal/blob/master/src/icons/page.svg)
 
 
 ## Тестирование
