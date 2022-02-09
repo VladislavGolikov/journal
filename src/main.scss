@@ -86,6 +86,11 @@ body {
         }
 
     }
+    .changeJournal {
+        @extend %buttons;
+        right: 36vh;
+        background-image: url('./icons/journal.svg');
+    }
     .changePage {
         @extend %buttons;
         right: 28vh;
