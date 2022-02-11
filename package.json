@@ -16,6 +16,7 @@
   "author": "Vladislav Golikov",
   "license": "MIT",
   "devDependencies": {
+    "@parcel/transformer-inline-string": "^2.3.1",
     "@parcel/transformer-pug": "^2.2.1",
     "@parcel/transformer-sass": "^2.2.1",
     "parcel": "^2.2.1"

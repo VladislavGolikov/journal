@@ -1,9 +1,6 @@
 import {tables, columns, defaultPage, monthDuration} from './config.json';
 import {CreateCell, CreateCellNamed} from './createcell.js';
 
-//import html from 'bundle-text:./logo.pug';
-
-//alert(html)
 
 export class CreateTable {
     constructor(currentPage=defaultPage) {
@@ -107,12 +104,13 @@ export class CreateTable {
 
 
 import {headerRowsHeight, headerColumnsWidth, layout, monthDuration} from './config.json';
-
+import htmlLogo from 'bundle-text:./logo.pug';
 
 
 export class CreateTableGeneral {
     constructor() {
         this.placeForStylize=document.querySelector('.allthereis');
+        this.htmlLogo=htmlLogo;
         this.date=new Date();
         this.currentMonth=this.date.getMonth(); /* месяц по дефолту вначале */
         this.currentYear=this.date.getFullYear(); /* год по дефолту вначале */
@@ -131,8 +129,7 @@ export class CreateTableGeneral {
         this.createGridStyle();
         this.createTableHead();
         this.createTableSimple();
-
-//        this.createTableDates();
+        this.createLogo();
     }
 
     clearPage() {
@@ -149,25 +146,28 @@ export class CreateTableGeneral {
     }
 
     createTableSimple() { /* создание множества пустых ячеек */
-        for (let j=this.headerRows; j <= this.numOfRows+this.headerRows; j++) {
+        for (let j=this.headerRows+1; j <= this.numOfRows+this.headerRows; j++) {
 
             for (let i=1; i <= this.numOfColumns; i++) {
-                new CreateCellNamed(i,i+1,j,j+1,`вася ${i} ${j}`);
+                new CreateCellNamed(i,i+1,j,j+1,`${this.getText(i,j-this.headerRows)}`);
             }
         }
     }
+    getText(col,day) {
+        let outputText='';
+        this.layout.forEach(function(el){ /* из массива конфига выбираем только столбцы единичной ширины, остальные - игнор */
+            if (el[1]==col&&el[2]==col+1) {
+                outputText=el[5]; if (el[5]==="date") { /* если в конфиге помечено, что дата, то меняем строку на дату */
+                    outputText=`${day} ${monthDuration[this.currentMonth][1]} ${this.currentYear}`;
+                }
+            }
+        },this)
 
-    createLogo() {
-        this.placeForStylize.insertAdjacentHTML('afterBegin',this.cellTemplate);
+        return outputText;
     }
 
-
-
-    createTableDates(){/* создание множества ячеек с датами */
-        for (let j=1+this.numOfRowsIndent; j <= this.numOfRows+this.numOfRowsIndent; j++) {
-
-                new CreateCell(1,j,`${j-this.numOfRowsIndent} ${monthDuration[this.currentMonth][1]}`);
-        }
+    createLogo() {
+        this.placeForStylize.insertAdjacentHTML('afterBegin',this.htmlLogo);
     }
 
     updatePage(page=false,month=0) {
