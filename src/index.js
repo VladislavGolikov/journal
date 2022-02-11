@@ -1,9 +1,9 @@
 import './main.scss';
-import {CreateTable} from './createtable.js';
+import {CreateTable, CreateTableGeneral} from './createtable.js';
 
+const vava=new CreateTableGeneral();
 
-
-const journalPage=new CreateTable();
+//const journalPage=new CreateTable();
 
 document.querySelector('.changePage').addEventListener('click', ()=>{journalPage.updatePage(true,false,this)});
 

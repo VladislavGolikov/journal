@@ -6,8 +6,6 @@ html(lang='ru')
     link(rel='icon' type='image/png' href='favicon.png')
     script(defer='defer' type='module' src='index.js')
   body
-    .logo
-      img.logotype(src='./icons/logo.svg' alt='gazprom')
     button.changeJournal
       .caption сменить журнал
     button.changePage
@@ -19,4 +17,6 @@ html(lang='ru')
     button.printPage
       .caption печать
     .allthereis
+      .logo
+        img.logotype(src='./icons/logo.svg' alt='gazprom')
 
