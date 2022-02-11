@@ -170,25 +170,22 @@ export class CreateTableGeneral {
         this.placeForStylize.insertAdjacentHTML('afterBegin',this.htmlLogo);
     }
 
-    updatePage(page=false,month=0) {
+    updatePage(month=0) {
 
-        if (page) {this.currentPage++; if (this.currentPage>=tables.length) {this.currentPage=0}} /* циклическая смена страницы */
-
-        this.currentMonth=this.currentMonth+month;
+       this.currentMonth=this.currentMonth+month;
         if (this.currentMonth<0) {this.currentMonth=11; this.currentYear--}; /* переход года назад */
         if (this.currentMonth>11) {this.currentMonth=0; this.currentYear++}; /* переход года вперед */
 
         this.updateLayout();
         this.clearPage();
         this.createGridStyle();
-        this.createTableSimple();
         this.createTableHead();
-        this.createTableDates();
+        this.createTableSimple();
+        this.createLogo();
     }
 
     updateLayout() {
         this.numOfRows=Number(monthDuration[this.currentMonth][0]); /* перерасчет строк */
-        this.numOfColumns=tables[this.currentPage].length*columns.length; /* перерасчет столбцов */
     }
 }
 
