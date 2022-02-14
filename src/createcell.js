@@ -25,8 +25,8 @@ export class CreateCell {
         this.placeForStylize=document.getElementById(this.idName);
     }
     stylizeCell() {
-        this.placeForStylize.style.gridRow=`${this.row} / ${++this.row}`
-        this.placeForStylize.style.gridColumn=`${this.column} / ${++this.column}`
+        this.placeForStylize.style.gridRow=`${this.row} / ${++this.row}`;
+        this.placeForStylize.style.gridColumn=`${this.column} / ${++this.column}`;
     }
 }
 

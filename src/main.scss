@@ -1,7 +1,7 @@
 @import "reset.scss"; /* сброс стилей по умолчанию */
 @import "fonts.scss"; /* собственные шрифты */
 @import "print.scss"; /* стили для печати содержимого */
-
+@import "classlist.scss"; /* стили для добавления через скрипт-класслист */
 
 body {
     background: linear-gradient(90deg, #652b97, #430b73);
@@ -61,8 +61,6 @@ body {
             font-size: 1.5vh;
         }
         .logo {
-            grid-column: 1 / 3;
-            grid-row: 1 / 2;
             padding: 0.2vh;
             background-color: green;
             border: 2px black solid;
@@ -112,6 +110,7 @@ body {
     .changePage {
         @extend %buttons;
         right: 28vh;
+        background-color: grey;
         background-image: url('./icons/page.svg');
     }
     .changeMonthBackward {
