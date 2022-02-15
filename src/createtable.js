@@ -5,7 +5,7 @@ import {CreateCell, CreateCellNamed} from './createcell.js';
 import {journalShift, journalReceiver, monthDuration, defaultPage} from './config.json';
 
 
-const {headerRowsHeight, headerColumnsWidth, layout, logo, title}=journalShift; /*journalShift или journalReceiver*/
+const {headerRowsHeight, headerColumnsWidth, layout, logo, title}=journalReceiver; /*journalShift или journalReceiver*/
 
 
 
@@ -36,7 +36,6 @@ export class CreateTableGeneral {
         this.headerColumnsWidthGeneral=headerColumnsWidth; /* весь массив разметки столбцов */
         this.headerColumnsWidth=this.headerColumnsWidthGeneral[this.page]; /* текущая разметка столбцов */
         this.headerRows=this.headerRowsHeight.length; /* столько строк в заголовке таблицы */
-
         this.numOfRows=Number(monthDuration[this.currentMonth][0]); /* количество строк в зависимости от длины месяца берется из конфига */
         this.numOfColumns=this.headerColumnsWidth.length; /* количество столбцов берется из конфига из разметки */
 
@@ -53,12 +52,12 @@ export class CreateTableGeneral {
 
     createGridStyle() { /* разметка грида */
         this.placeForStylize.style.gridTemplateColumns=`repeat(${this.numOfColumns}, 1fr)`;
-        this.placeForStylize.style.gridTemplateRows=`repeat(${this.numOfRows+this.headerRows}, 1fr)`;
+        this.placeForStylize.style.gridTemplateRows=`${this.headerRowsHeight.join(' ')} repeat(${this.numOfRows}, 1fr)`;
     }
 
     createTableHead() {
         this.layout.forEach(function(el){
-            if (el[5]==="date") {el[0]=`${monthDuration[this.currentMonth][2]} ${this.currentYear} года`} /* формирование даты */
+            if (el[5]==="dateup") {el[0]=`${monthDuration[this.currentMonth][2]} ${this.currentYear} года`} /* формирование даты */
             new CreateCellNamed(el[1],el[2],el[3],el[4],el[0]);
         },this);
     }

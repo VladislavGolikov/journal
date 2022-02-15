@@ -2,7 +2,7 @@
 
   "journalReceiver":{
     "title": "Журнал для записи показаний приёмников в пультовой",
-    "headerRowsHeight": ["4vh","4vh","4vh"],
+    "headerRowsHeight": ["10vh","8vh","4vh"],
     "headerColumnsWidth": [
       ["4vw","4vw","4vw","4vw","4vw","4vw","4vw","4vw","4vw"],
       ["4vw","4vw","4vw","4vw","4vw","4vw","4vw","4vw","4vw"],
@@ -22,7 +22,7 @@
       ["Link Margin, dB","5","6","3","4",""],
       ["Link Margin, dB","7","8","3","4",""],
       ["Link Margin, dB","9","10","3","4",""],
-      ["date","2","10","1","2","date"]],
+      ["date","2","10","1","2","dateup"]],
 
       [["дата","1","2","3","4","date"],
       ["8 пакет","2","4","2","3",""],
@@ -37,7 +37,7 @@
       ["Link Margin, dB","5","6","3","4",""],
       ["Link Margin, dB","7","8","3","4",""],
       ["Link Margin, dB","9","10","3","4",""],
-      ["date","2","10","1","2","date"]],
+      ["date","2","10","1","2","dateup"]],
 
       [["дата","1","2","3","4","date"],
       ["12 пакет","2","4","2","3",""],
@@ -55,7 +55,7 @@
       ["Link Margin, dB","7","8","3","4",""],
       ["Link Margin, dB","9","10","3","4",""],
       ["Link Margin, dB","11","12","3","4",""],
-      ["date","2","12","1","2","date"]]]
+      ["date","2","12","1","2","dateup"]]]
   },
 
   "defaultPage": "0",
@@ -75,7 +75,7 @@
 
   "journalShift": {
     "title": "Журнал сдачи-приема дежурства",
-    "headerRowsHeight": ["4vh","4vh"],
+    "headerRowsHeight": ["14vh","8vh"],
     "headerColumnsWidth": [["4vw","4vw","4vw","4vw","4vw","4vw","4vw","4vw","4vw","4vw","4vw"]],
     "logo": ["1 / 3","1 / 2"],
     "layout": [[["дата","1","2","2","3","date"],
