@@ -55,7 +55,10 @@ export class CreateTableGeneral {
     }
 
     createTableHead() {
-        this.layout.forEach(function(el){new CreateCellNamed(el[1],el[2],el[3],el[4],el[0])},this);
+        this.layout.forEach(function(el){
+            if (el[5]==="date") {el[0]=`${monthDuration[this.currentMonth][2]} ${this.currentYear} года`} /* формирование даты */
+            new CreateCellNamed(el[1],el[2],el[3],el[4],el[0]);
+        },this);
     }
 
     createTableSimple() { /* создание множества пустых ячеек */
