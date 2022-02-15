@@ -4,8 +4,8 @@ import {CreateCell, CreateCellNamed} from './createcell.js';
 
 import {journalShift, journalReceiver, monthDuration, defaultPage} from './config.json';
 
-if (true) {}
-const {headerRowsHeight, headerColumnsWidth, layout, logo}=journalReceiver; /*journalShift или journalReceiver*/
+
+const {headerRowsHeight, headerColumnsWidth, layout, logo, title}=journalShift; /*journalShift или journalReceiver*/
 
 
 
@@ -18,11 +18,12 @@ export class CreateTableGeneral {
         this.htmlLogo=htmlLogo;
         this.logopositionX=logo[0]; /* грид позиция логотипа по Х */
         this.logopositionY=logo[1]; /* грид позиция логотипа по Y */
+        this.title=title;
+        this.checkTitle(); /* изменение заголовка журнала */
         this.date=new Date();
         this.currentMonth=this.date.getMonth(); /* месяц по дефолту вначале */
         this.currentYear=this.date.getFullYear(); /* год по дефолту вначале */
         this.page=defaultPage;
-
 
         /* массив из массивов, где:
         название клетки, его x-grid начало, его x-grid конец, его y-grid начало, его y-grid конец, текст для заполнения ячеек.
@@ -111,6 +112,7 @@ export class CreateTableGeneral {
         this.headerColumnsWidth=this.headerColumnsWidthGeneral[this.page]; /* обновление разметки столбцов */
         this.numOfColumns=this.headerColumnsWidth.length; /* обновление количества столбцов */
     }
+
     checkPageButton() {
         const button=document.querySelector('.changePage');
         const caption=document.querySelector('.changePage *');
@@ -123,5 +125,10 @@ export class CreateTableGeneral {
             caption.classList.remove('notavailablecaption');
         }
     }
+
+    checkTitle() {
+        document.querySelector('title').innerHTML=this.title;
+    }
+
 }
 
