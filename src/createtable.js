@@ -30,6 +30,7 @@ export class CreateTableGeneral {
         this.layoutGeneral=layout; /* весь массив макетов */
         this.layout=this.layoutGeneral[this.page]; /* текущий макет */
         this.maxPage=this.layoutGeneral.length; /* максимум страниц - количество макетов страниц */
+        this.checkPageButton(); /* кнопка сереет, если страница одна */
         this.headerRowsHeight=headerRowsHeight; /* разметка строк */
         this.headerColumnsWidthGeneral=headerColumnsWidth; /* весь массив разметки столбцов */
         this.headerColumnsWidth=this.headerColumnsWidthGeneral[this.page]; /* текущая разметка столбцов */
@@ -109,6 +110,18 @@ export class CreateTableGeneral {
         this.layout=this.layoutGeneral[this.page]; /* обновление макета */
         this.headerColumnsWidth=this.headerColumnsWidthGeneral[this.page]; /* обновление разметки столбцов */
         this.numOfColumns=this.headerColumnsWidth.length; /* обновление количества столбцов */
+    }
+    checkPageButton() {
+        const button=document.querySelector('.changePage');
+        const caption=document.querySelector('.changePage *');
+
+        if (this.maxPage<=1) {
+            button.classList.add('notavailablebutton');
+            caption.classList.add('notavailablecaption');
+        }else{
+            button.classList.remove('notavailablebutton');
+            caption.classList.remove('notavailablecaption');
+        }
     }
 }
 

@@ -110,7 +110,6 @@ body {
     .changePage {
         @extend %buttons;
         right: 28vh;
-        background-color: grey;
         background-image: url('./icons/page.svg');
     }
     .changeMonthBackward {

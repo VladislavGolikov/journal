@@ -1,3 +1,10 @@
-.notavailable {
-    background-color: grey;
+/* импотант нужно для перезаписи через класслист более специфичных селекторов! */
+
+.notavailablebutton {
+    background-color: grey !important;
 }
+
+.notavailablecaption {
+    color: grey !important;
+}
+
