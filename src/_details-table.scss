@@ -1,0 +1,56 @@
+%forCellNamed {
+    font-family: minecraft;
+    text-align: center;
+    text-transform: none;
+
+
+
+    background-color: green;
+    border: 2px black solid;
+    overflow: hidden;
+    align-self: stretch;
+}
+.cellNamed { /* простые ячейки таблицы */
+    @extend %forCellNamed;
+    font-size: 1.7vh;
+}
+.cellDate { /* ячейки таблицы с датами */
+    @extend %forCellNamed;
+    font-size: 1.7vh;
+    text-align: right;
+    padding-right: 1vw;
+}
+.dateCell { /* для заголовка даты */
+    @extend %forCellNamed;
+    font-size: 1.8vh;
+}
+.h1Cell {
+    @extend %forCellNamed;
+    font-size: 3vh;
+}
+.h2Cell {
+    @extend %forCellNamed;
+    font-size: 2.5vh;
+}
+.h3Cell {
+    @extend %forCellNamed;
+    font-size: 2vh;
+}
+.h4Cell {
+    @extend %forCellNamed;
+    font-size: 1.8vh;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,15 @@
+.logo {
+    padding: 0.2vh;
+    background-color: green;
+    border: 2px black solid;
+    .logotype {
+        height: 100%;
+        background-image: url(icons/logo.svg);
+        background-position: left top;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+}
+
+
+

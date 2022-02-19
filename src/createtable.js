@@ -1,43 +1,19 @@
-
-import {CreateCell, CreateCellNamed} from './createcell.js';
-
+import {CreateCellNamed} from './createcell.js';
 
 import {journalShift, journalReceiver, monthDuration, defaultPage} from './config.json';
 
-
-const {headerRowsHeight, headerColumnsWidth, layout, logo, title}=journalReceiver; /*journalShift или journalReceiver*/
-
-
-
 import htmlLogo from 'bundle-text:./logo.pug';
-
 
 export class CreateTableGeneral {
     constructor() {
         this.placeForStylize=document.querySelector('.allthereis');
-        this.htmlLogo=htmlLogo;
-        this.logopositionX=logo[0]; /* грид позиция логотипа по Х */
-        this.logopositionY=logo[1]; /* грид позиция логотипа по Y */
-        this.title=title;
-        this.checkTitle(); /* изменение заголовка журнала */
+        this.htmlLogo=htmlLogo; /* шаблон логотипа */
         this.date=new Date();
         this.currentMonth=this.date.getMonth(); /* месяц по дефолту вначале */
         this.currentYear=this.date.getFullYear(); /* год по дефолту вначале */
-        this.page=defaultPage;
 
-        /* массив из массивов, где:
-        название клетки, его x-grid начало, его x-grid конец, его y-grid начало, его y-grid конец, текст для заполнения ячеек.
-        И сам при этом элемент массива страниц! */
-        this.layoutGeneral=layout; /* весь массив макетов */
-        this.layout=this.layoutGeneral[this.page]; /* текущий макет */
-        this.maxPage=this.layoutGeneral.length; /* максимум страниц - количество макетов страниц */
-        this.checkPageButton(); /* кнопка сереет, если страница одна */
-        this.headerRowsHeight=headerRowsHeight; /* разметка строк */
-        this.headerColumnsWidthGeneral=headerColumnsWidth; /* весь массив разметки столбцов */
-        this.headerColumnsWidth=this.headerColumnsWidthGeneral[this.page]; /* текущая разметка столбцов */
-        this.headerRows=this.headerRowsHeight.length; /* столько строк в заголовке таблицы */
-        this.numOfRows=Number(monthDuration[this.currentMonth][0]); /* количество строк в зависимости от длины месяца берется из конфига */
-        this.numOfColumns=this.headerColumnsWidth.length; /* количество столбцов берется из конфига из разметки */
+        this.currentJournal=journalReceiver; /* по умолчанию текущий журнал - показаний */
+        this.updateJournal();
 
         this.clearPage();
         this.createGridStyle();
@@ -46,19 +22,38 @@ export class CreateTableGeneral {
         this.createLogo();
     }
 
+    updateJournal() {
+        this.logopositionX=this.currentJournal.logo[0]; /* грид позиция логотипа по Х */
+        this.logopositionY=this.currentJournal.logo[1]; /* грид позиция логотипа по Y */
+        this.title=this.currentJournal.title;
+        this.checkTitle(); /* изменение заголовка журнала */
+        this.page=defaultPage;
+        /* массив из массивов, где:
+        название клетки, его x-grid начало, его x-grid конец, его y-grid начало, его y-grid конец, текст для заполнения ячеек.
+        И сам при этом элемент массива страниц! */
+        this.layoutGeneral=this.currentJournal.layout; /* весь массив макетов */
+        this.maxPage=this.layoutGeneral.length; /* максимум страниц - количество макетов страниц */
+        this.checkPageButton(); /* кнопка сереет, если страница одна */
+        this.headerRowsHeight=this.currentJournal.headerRowsHeight; /* разметка строк */
+        this.headerColumnsWidthGeneral=this.currentJournal.headerColumnsWidth; /* весь массив разметки столбцов */
+        this.headerRows=this.headerRowsHeight.length; /* столько строк в заголовке таблицы */
+        this.updateLayout();
+    }
+
     clearPage() {
         this.placeForStylize.innerHTML='';
     }
 
     createGridStyle() { /* разметка грида */
-        this.placeForStylize.style.gridTemplateColumns=`repeat(${this.numOfColumns}, 1fr)`;
+
+        this.placeForStylize.style.gridTemplateColumns=this.headerColumnsWidth.join(' ');
         this.placeForStylize.style.gridTemplateRows=`${this.headerRowsHeight.join(' ')} repeat(${this.numOfRows}, 1fr)`;
     }
 
     createTableHead() {
         this.layout.forEach(function(el){
             if (el[5]==="dateup") {el[0]=`${monthDuration[this.currentMonth][2]} ${this.currentYear} года`} /* формирование даты */
-            new CreateCellNamed(el[1],el[2],el[3],el[4],el[0]);
+            new CreateCellNamed(el[1],el[2],el[3],el[4],el[0],el[6]);
         },this);
     }
 
@@ -66,21 +61,24 @@ export class CreateTableGeneral {
         for (let j=this.headerRows+1; j <= this.numOfRows+this.headerRows; j++) {
 
             for (let i=1; i <= this.numOfColumns; i++) {
-                new CreateCellNamed(i,i+1,j,j+1,`${this.getText(i,j-this.headerRows)}`);
+                new CreateCellNamed(i,i+1,j,j+1,`${this.getTextAndClass(i,j-this.headerRows)[0]}`,this.getTextAndClass(i)[1]);
             }
         }
     }
 
-    getText(col,day) {
-        let outputText='';
+    getTextAndClass(col,day) {
+        let output=[];
         this.layout.forEach(function(el){ /* из массива конфига выбираем только столбцы единичной ширины, остальные - игнор */
             if (el[1]==col&&el[2]==col+1) {
-                outputText=el[5]; if (el[5]==="date") { /* если в конфиге помечено, что дата, то меняем строку на дату */
-                    outputText=`${day} ${monthDuration[this.currentMonth][1]} ${this.currentYear}`;
+                output[0]=el[5];
+                output[1]='cellNamed';
+                 if (el[5]==="date") { /* если в конфиге помечено, что дата, то меняем строку на дату */
+                    output[0]=`${day} ${monthDuration[this.currentMonth][1]} ${this.currentYear}`;
+                    output[1]='cellDate';
                 }
             }
         },this)
-        return outputText;
+        return output;
     }
 
     createLogo() {
@@ -129,5 +127,10 @@ export class CreateTableGeneral {
         document.querySelector('title').innerHTML=this.title;
     }
 
+    changeJournal() {
+        if (this.currentJournal==journalReceiver) {this.currentJournal=journalShift}else{this.currentJournal=journalReceiver};
+        this.updateJournal();
+        this.updatePage();
+    }
 }
 

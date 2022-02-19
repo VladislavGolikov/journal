@@ -1,17 +1,14 @@
 import './main.scss';
-import {CreateTable, CreateTableGeneral} from './createtable.js';
+import {CreateTableGeneral} from './createtable.js';
 
-const journalPage=new CreateTableGeneral();
+const journal=new CreateTableGeneral();
 
-//const journalPage=new CreateTable();
+document.querySelector('.changePage').addEventListener('click', ()=>{journal.updatePage(true,false,this)});
 
-document.querySelector('.changePage').addEventListener('click', ()=>{journalPage.updatePage(true,false,this)});
+document.querySelector('.changeMonthForward').addEventListener('click', ()=>{journal.updatePage(false,1,this)});
 
-document.querySelector('.changeMonthForward').addEventListener('click', ()=>{journalPage.updatePage(false,1,this)});
-
-document.querySelector('.changeMonthBackward').addEventListener('click', ()=>{journalPage.updatePage(false,-1,this)});
+document.querySelector('.changeMonthBackward').addEventListener('click', ()=>{journal.updatePage(false,-1,this)});
 
 document.querySelector('.printPage').addEventListener('click', ()=>window.print());
 
-
-
+document.querySelector('.changeJournal').addEventListener('click', ()=>{journal.changeJournal(this)});

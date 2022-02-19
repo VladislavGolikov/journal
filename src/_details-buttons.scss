@@ -1,0 +1,53 @@
+%buttons {
+    position: absolute;
+    top: 1vh;
+    width: 7vh;
+    height: 4vh;
+    z-index: 2;
+    font-family: verdana, san-serif;
+    font-size: 1.5vh;
+    font-weight: bold;
+    line-height: 1.25vh;
+    text-shadow: 1px -1px black;
+    text-transform: lowercase;
+    text-align: center;
+    border-radius: 1vh;
+    background-color: #00cc00;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    .caption {
+        position: absolute;
+        top: 120%;
+        width: 100%;
+        color: #00cc00;
+    }
+
+}
+.changeJournal {
+    @extend %buttons;
+    right: 36vh;
+    background-image: url('./icons/journal.svg');
+}
+.changePage {
+    @extend %buttons;
+    right: 28vh;
+    background-image: url('./icons/page.svg');
+}
+.changeMonthBackward {
+    @extend %buttons;
+    right: 20vh;
+    background-image: url('./icons/month-down.svg');
+}
+.changeMonthForward {
+    @extend %buttons;
+    right: 12vh;
+    background-image: url('./icons/month-up.svg');
+}
+.printPage {
+    @extend %buttons;
+    right: 4vh;
+    background-image: url('./icons/print.svg');
+}
+
+

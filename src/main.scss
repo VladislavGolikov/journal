@@ -21,112 +21,12 @@ body {
         overflow: hidden;
         background-color: white;
         display: grid;
-        grid-template-columns: repeat($num-of-columns, 1fr);
-        grid-template-rows: repeat($num-of-rows, 1fr);
+        align-items: end;
+        align-content: start;
         gap: 0 0;
 
-        .cellOfTable {
-            font-family: minecraft;
-            font-size: 1.5vh;
-            background-color: yellow;
-            border: 1px black solid;
-            text-align: center;
-        }
-
-        %forCellNamed {
-            font-family: minecraft;
-            text-align: center;
-            text-transform: none;
-            font-size: 4vh;
-            font-weight: bold;
-            line-height: 4vh;
-            background-color: green;
-            border: 2px black solid;
-        }
-        .cellNamed {
-            @extend %forCellNamed;
-            font-size: 1vh;
-            line-height: 1vh;
-        }
-        .cellNamedDate {
-            @extend %forCellNamed;
-            font-size: 2vh;
-        }
-        .cellNamedParameter{
-            @extend %forCellNamed;
-            font-size: 1.5vh;
-        }
-        .cellNamedPacket{
-            @extend %forCellNamed;
-            font-size: 1.5vh;
-        }
-        .logo {
-            padding: 0.2vh;
-            background-color: green;
-            border: 2px black solid;
-            z-index: 2;
-            .logotype {
-                height: 100%;
-                background-image: url(icons/logo.svg);
-                background-position: left top;
-                background-repeat: no-repeat;
-                background-size: contain;
-            }
-        }
-
+        @import "details-table.scss"; /* элементы - ячейки таблицы */
+        @import "details-logo.scss"; /* элементы - логотип */
     }
-
-    %buttons {
-        position: absolute;
-        top: 1vh;
-        width: 7vh;
-        height: 4vh;
-        z-index: 2;
-        font-family: verdana, san-serif;
-        font-size: 1.5vh;
-        font-weight: bold;
-        line-height: 1.25vh;
-        text-shadow: 1px -1px black;
-        text-transform: lowercase;
-        text-align: center;
-        border-radius: 1vh;
-        background-color: #00cc00;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: contain;
-        .caption {
-            position: absolute;
-            top: 120%;
-            width: 100%;
-            color: #00cc00;
-        }
-
-    }
-    .changeJournal {
-        @extend %buttons;
-        right: 36vh;
-        background-image: url('./icons/journal.svg');
-    }
-    .changePage {
-        @extend %buttons;
-        right: 28vh;
-        background-image: url('./icons/page.svg');
-    }
-    .changeMonthBackward {
-        @extend %buttons;
-        right: 20vh;
-        background-image: url('./icons/month-down.svg');
-    }
-    .changeMonthForward {
-        @extend %buttons;
-        right: 12vh;
-        background-image: url('./icons/month-up.svg');
-    }
-    .printPage {
-        @extend %buttons;
-        right: 4vh;
-        background-image: url('./icons/print.svg');
-    }
-
-
+    @import "details-buttons.scss"; /* элементы - кнопки */
 }
