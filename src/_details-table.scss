@@ -2,17 +2,14 @@
     font-family: minecraft;
     text-align: center;
     text-transform: none;
-
-
-
     background-color: green;
     border: 2px black solid;
     overflow: hidden;
-    align-self: stretch;
+    display: grid;
 }
 .cellNamed { /* простые ячейки таблицы */
     @extend %forCellNamed;
-    font-size: 1.7vh;
+    font-size: 1.5vh;
 }
 .cellDate { /* ячейки таблицы с датами */
     @extend %forCellNamed;
@@ -26,7 +23,7 @@
 }
 .h1Cell {
     @extend %forCellNamed;
-    font-size: 3vh;
+    font-size: 3.5vh;
 }
 .h2Cell {
     @extend %forCellNamed;
@@ -38,10 +35,12 @@
 }
 .h4Cell {
     @extend %forCellNamed;
-    font-size: 1.8vh;
+    font-size: 1.6vh;
 }
 
-
+.text-inside {
+    align-self: center;
+}
 
 
 

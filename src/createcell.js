@@ -17,7 +17,7 @@ export class CreateCellNamed {
         this.stylizeCell();
     }
     createTemplate() {
-        this.cellTemplate=`<div id=${this.idName} class=${this.className}>${this.text}</div>`;
+        this.cellTemplate=`<div id=${this.idName} class=${this.className}><div class='text-inside'>${this.text}</div></div>`;
     }
     createCell() {
         this.placeForInsert.insertAdjacentHTML('afterBegin',this.cellTemplate);

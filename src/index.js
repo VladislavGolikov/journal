@@ -12,3 +12,6 @@ document.querySelector('.changeMonthBackward').addEventListener('click', ()=>{jo
 document.querySelector('.printPage').addEventListener('click', ()=>window.print());
 
 document.querySelector('.changeJournal').addEventListener('click', ()=>{journal.changeJournal(this)});
+
+
+
